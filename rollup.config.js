@@ -8,7 +8,7 @@ import upperFirst from 'lodash.upperfirst'
 import path from 'path'
 import pkg from './package.json'
 
-const moduleName = upperFirst(camelCase(pkg.name));
+const moduleName = upperFirst(camelCase(pkg.name))
 
 const banner = `/*!
   ${moduleName}.js v${pkg.version}
@@ -32,9 +32,7 @@ export default [
         file: pkg.browser.replace('.js', '.min.js'),
         format: 'iife',
         banner,
-        plugins: [
-          terser(),
-        ],
+        plugins: [terser()],
       },
       {
         name: moduleName,

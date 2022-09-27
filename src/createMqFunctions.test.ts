@@ -58,6 +58,8 @@ describe('reject createMqFunctions', () => {
   })
 
   test('throw: required query', () => {
-    expect(() => { createMqFunctions('') }).toThrowError('required query')
+    expect(() => {
+      createMqFunctions('')
+    }).toThrowError('required query')
   })
 })

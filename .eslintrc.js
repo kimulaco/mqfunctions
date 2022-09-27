@@ -5,32 +5,26 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: [
-    'eslint:recommended',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'prettier'],
   overrides: [
     {
-      files: [
-        './rollup.config.js',
-      ],
+      files: ['./rollup.config.js'],
       parserOptions: {
         sourceType: 'module',
       },
     },
     {
-      files: [
-        '**/*.ts',
-      ],
+      files: ['**/*.ts'],
       parser: '@typescript-eslint/parser',
-      plugins: [
-        '@typescript-eslint',
-      ],
+      plugins: ['@typescript-eslint'],
       rules: {
         'no-unused-vars': 0,
-        '@typescript-eslint/no-unused-vars': [2, {
-          argsIgnorePattern: '^_',
-        }],
+        '@typescript-eslint/no-unused-vars': [
+          2,
+          {
+            argsIgnorePattern: '^_',
+          },
+        ],
       },
     },
   ],

@@ -1,10 +1,7 @@
 import type { MqFunctions } from './index.d'
 import { addEventListener, removeEventListener } from './utils/eventListener'
 
-export const removeMqFunction = (
-  mqf: MqFunctions,
-  id: string,
-): void => {
+export const removeMqFunction = (mqf: MqFunctions, id: string): void => {
   if (!id) {
     throw new Error('required function id')
   }

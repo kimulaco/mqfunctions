@@ -1,9 +1,6 @@
 import type { MqFunctions, HandlerEvent } from './index.d'
 
-export const runMqFunction = (
-  mqf: MqFunctions,
-  id: string,
-): void => {
+export const runMqFunction = (mqf: MqFunctions, id: string): void => {
   if (!id) {
     throw new Error('required function id')
   }
