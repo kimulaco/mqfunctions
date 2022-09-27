@@ -1,3 +1,13 @@
-import { MediaQueryHandlers } from './media-query-handlers'
+import {
+  createMqFunctions,
+  addMqFunction,
+  removeMqFunction,
+  runMqFunction,
+} from './mqfunctions'
 
-export default MediaQueryHandlers
+export default {
+  createMqFunctions,
+  addMqFunction,
+  removeMqFunction,
+  runMqFunction,
+}

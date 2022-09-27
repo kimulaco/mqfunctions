@@ -36,6 +36,12 @@ export default [
           terser(),
         ],
       },
+      {
+        name: moduleName,
+        file: pkg.browser.replace(/dist\/(.+?)\.js/, 'test/fixtures/js/$1.js'),
+        format: 'iife',
+        banner,
+      },
     ],
     plugins: [
       pluginTypescript(),
