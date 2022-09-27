@@ -58,7 +58,7 @@ export default [
     ],
   },
   {
-    input: `src/${pkg.name}.ts`,
+    input: `src/index.ts`,
     output: [
       {
         file: pkg.module,
