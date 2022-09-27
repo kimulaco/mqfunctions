@@ -28,7 +28,7 @@ export const createMqFunctions = (query: string): MqFunctions => {
         return
       }
 
-      for (const [_, fn] of functions) {
+      for (const [, fn] of functions) {
         fn(event)
       }
     },

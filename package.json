@@ -32,6 +32,7 @@
     "start": "serve . -p 3000",
     "prebuild": "rimraf dist",
     "build": "rollup -c",
+    "lint:eslint": "eslint .",
     "test:serve": "serve test/fixtures -p 3000"
   },
   "dependencies": {
@@ -42,8 +43,13 @@
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.1.0",
     "@rollup/plugin-typescript": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.upperfirst": "^4.3.1",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.79.1",
     "rollup-plugin-terser": "^7.0.2",
