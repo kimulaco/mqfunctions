@@ -9,8 +9,31 @@ on:
       - '**'
 
 jobs:
+  build:
+    name: Build on Node.js ${{ matrix.node }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [16]
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - run: npm ci
+      - run: npm run build
+      - name: Upload dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
   test_e2e:
     name: E2E Test on Node.js ${{ matrix.node }} and ${{ matrix.os }}
+    needs: [build]
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -23,6 +46,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+      - name: Download dist
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
       - run: npm ci
       - run: npm run test:e2e
 
@@ -32,7 +59,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [14, 16, 18]
+        node: [16]
         os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
@@ -42,3 +69,21 @@ jobs:
           node-version: '16.x'
       - run: npm ci
       - run: npm run test:unit
+
+  lint:
+    name: Lint on Node.js ${{ matrix.node }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [16]
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - run: npm ci
+      - run: npm run lint:eslint
+      - run: npm run lint:prettier
