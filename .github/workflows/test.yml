@@ -29,7 +29,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: dist
+          path: |
+            dist
+            test/fixtures/js/mqfunctions.js
 
   test_e2e:
     name: E2E Test on Node.js ${{ matrix.node }} and ${{ matrix.os }}
