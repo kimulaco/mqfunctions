@@ -4,7 +4,7 @@
 import MatchMediaMock from 'jest-matchmedia-mock'
 import { createMqFunctions } from './createMqFunctions'
 import { addMqFunction } from './addMqFunction'
-import type { MqFunctions, HandlerEvent } from './index.d'
+import type { MqFunctions, HandlerEvent } from './MqFunctions'
 
 describe('resolve addMqFunctions', () => {
   let matchMedia: MatchMediaMock
