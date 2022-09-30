@@ -1,6 +1,6 @@
 {
   "name": "mqfunctions",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "JavaScript library to manage matchMedia handlers.",
   "keywords": [
     "media query",
@@ -18,7 +18,7 @@
     "url": "https://github.com/kimulaco/mqfunctions/issues"
   },
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "module": "dist/index.es.js",
   "browser": "dist/mqfunctions.js",
   "files": [

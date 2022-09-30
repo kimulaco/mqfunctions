@@ -1,4 +1,4 @@
-import type { MqFunctions, HandlerEvent } from './index.d'
+import type { MqFunctions, HandlerEvent } from './MqFunctions'
 
 export const runMqFunction = (mqf: MqFunctions, id: string): void => {
   if (!id) {
