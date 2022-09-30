@@ -1,4 +1,4 @@
-import type { MqFunctions, HandlerFunction } from './MqFunctions'
+import type { MqFunctions, HandlerFunction } from './types/MqFunctions'
 import { addEventListener, removeEventListener } from './utils/eventListener'
 
 export const addMqFunction = (

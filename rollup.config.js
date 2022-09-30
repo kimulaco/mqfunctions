@@ -18,7 +18,7 @@ const banner = `/*!
 
 export default [
   {
-    input: 'src/index.ts',
+    input: 'src/mqfunctions.ts',
     output: [
       {
         name: moduleName,
@@ -65,7 +65,12 @@ export default [
       ...Object.keys(pkg.devDependencies || {}),
     ],
     plugins: [
-      pluginTypescript(),
+      pluginTypescript({
+        compilerOptions: {
+          declaration: true,
+          outDir: path.dirname(pkg.browser),
+        },
+      }),
       pluginBabel({
         babelHelpers: 'bundled',
         configFile: path.resolve(__dirname, '.babelrc.js'),
@@ -73,7 +78,7 @@ export default [
     ],
   },
   {
-    input: 'src/index.ts',
+    input: 'src/mqfunctions.ts',
     output: [
       {
         file: pkg.main,
@@ -88,12 +93,7 @@ export default [
       ...Object.keys(pkg.devDependencies || {}),
     ],
     plugins: [
-      pluginTypescript({
-        compilerOptions: {
-          declaration: true,
-          outDir: path.dirname(pkg.browser),
-        },
-      }),
+      pluginTypescript(),
       pluginBabel({
         babelHelpers: 'bundled',
         configFile: path.resolve(__dirname, '.babelrc.js'),

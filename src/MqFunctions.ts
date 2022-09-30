@@ -1,12 +1,17 @@
-export type HandlerEvent = {
-  readonly matches: boolean
-  readonly media: string
-}
+import { createMqFunctions } from './createMqFunctions'
+import { addMqFunction } from './addMqFunction'
+import { removeMqFunction } from './removeMqFunction'
+import { runMqFunction } from './runMqFunction'
 
-export type HandlerFunction = (event: HandlerEvent) => void
+export type {
+  MqFunctions,
+  HandlerEvent,
+  HandlerFunction,
+} from './types/MqFunctions'
 
-export type MqFunctions = {
-  functions: Map<string, HandlerFunction>
-  readonly mql: MediaQueryList
-  readonly _handleChange: (event: HandlerEvent) => void
+export default {
+  createMqFunctions,
+  addMqFunction,
+  removeMqFunction,
+  runMqFunction,
 }

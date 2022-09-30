@@ -3,7 +3,7 @@
  */
 import MatchMediaMock from 'jest-matchmedia-mock'
 import { createMqFunctions } from './createMqFunctions'
-import type { MqFunctions, HandlerEvent } from './MqFunctions'
+import type { MqFunctions, HandlerEvent } from './types/MqFunctions'
 
 const getHandleArg = (mqf: MqFunctions): Promise<HandlerEvent> => {
   return new Promise((resolve, reject) => {
