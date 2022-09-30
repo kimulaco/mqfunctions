@@ -36,6 +36,7 @@
     "lint:prettier": "prettier --write .",
     "test:unit": "jest -c jest.unit.config.js --verbose --coverage",
     "test:e2e": "jest -c jest.e2e.config.js --verbose",
+    "pretest:e2e": "node scripts/setupE2E.js",
     "test:serve": "serve test/fixtures -p 3000"
   },
   "dependencies": {
