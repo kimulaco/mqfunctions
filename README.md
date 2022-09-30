@@ -2,6 +2,7 @@
 
 [![Test Status](https://github.com/kimulaco/mqfunctions/workflows/Test/badge.svg)](https://github.com/kimulaco/mqfunctions/actions)
 [![License MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/mqfunctions.svg)](https://badge.fury.io/js/mqfunctions)
 
 JavaScript library to manage matchMedia handlers.
 
