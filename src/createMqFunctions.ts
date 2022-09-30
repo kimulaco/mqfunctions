@@ -1,4 +1,4 @@
-import type { MqFunctions, HandlerFunction, HandlerEvent } from './index.d'
+import type { MqFunctions, HandlerFunction, HandlerEvent } from './MqFunctions'
 
 export const createMqFunctions = (query: string): MqFunctions => {
   if (!query) {

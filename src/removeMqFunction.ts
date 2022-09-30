@@ -1,4 +1,4 @@
-import type { MqFunctions } from './index.d'
+import type { MqFunctions } from './MqFunctions'
 import { addEventListener, removeEventListener } from './utils/eventListener'
 
 export const removeMqFunction = (mqf: MqFunctions, id: string): void => {
