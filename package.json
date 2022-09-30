@@ -18,7 +18,7 @@
     "url": "https://github.com/kimulaco/mqfunctions/issues"
   },
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "module": "dist/index.es.js",
   "browser": "dist/mqfunctions.js",
   "files": [
