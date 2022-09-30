@@ -94,7 +94,12 @@ export default [
       ...Object.keys(pkg.devDependencies || {}),
     ],
     plugins: [
-      pluginTypescript(),
+      pluginTypescript({
+        compilerOptions: {
+          declaration: true,
+          outDir: path.dirname(pkg.browser),
+        },
+      }),
       pluginBabel({
         babelHelpers: 'bundled',
         configFile: path.resolve(__dirname, '.babelrc.js'),
