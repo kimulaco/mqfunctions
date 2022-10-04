@@ -5,7 +5,32 @@ import MatchMediaMock from 'jest-matchmedia-mock'
 import { createMqFunctions } from './createMqFunctions'
 import { addMqFunction } from './addMqFunction'
 import { runMqFunction } from './runMqFunction'
-import type { MqFunctions } from './types/MqFunctions'
+import type { MqFunctions, HandlerEvent } from './types/MqFunctions'
+
+describe('resolve runMqFunction', () => {
+  let matchMedia: MatchMediaMock
+  let mqf: MqFunctions
+  let testValues: { [key: string]: HandlerEvent } = {}
+
+  beforeAll(() => {
+    matchMedia = new MatchMediaMock()
+    mqf = createMqFunctions('(min-width: 769px)')
+    testValues = {}
+  })
+
+  afterEach(() => {
+    matchMedia.clear()
+  })
+
+  test('run added function', () => {
+    mqf.functions.set('test1', (event: HandlerEvent) => {
+      testValues.test1 = event
+    })
+    runMqFunction(mqf, 'test1')
+    expect(testValues.test1?.matches).toBeFalsy()
+    expect(testValues.test1?.media).toBe('(min-width: 769px)')
+  })
+})
 
 describe('reject runMqFunction', () => {
   let matchMedia: MatchMediaMock
