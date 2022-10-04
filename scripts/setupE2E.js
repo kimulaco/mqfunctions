@@ -7,7 +7,7 @@ const browserJsFileAbsPath = path.resolve(cwd, browserJsFilePath)
 const fixtureFileAbsPath = path.resolve(cwd, 'test/fixtures/js/mqfunctions.js')
 
 if (!fs.existsSync(browserJsFileAbsPath)) {
-  console.log(`Not found ${browserJsFilePath}`)
+  console.log(`Not found ${browserJsFileAbsPath}`)
   process.exit(1)
 }
 
