@@ -3,27 +3,15 @@
  */
 import MatchMediaMock from 'jest-matchmedia-mock'
 import { createMqFunctions } from './createMqFunctions'
-import type { MqFunctions, HandlerEvent } from './types/MqFunctions'
-
-const getHandleArg = (mqf: MqFunctions): Promise<HandlerEvent> => {
-  return new Promise((resolve, reject) => {
-    mqf.functions.set('test', (event: HandlerEvent) => {
-      resolve(event)
-    })
-    const fn = mqf.functions.get('test')
-    if (typeof fn === 'function') {
-      fn(mqf.mql)
-    } else {
-      reject('undefined function')
-    }
-  })
-}
+import type { HandlerEvent } from './types/MqFunctions'
 
 describe('resolve createMqFunctions', () => {
   let matchMedia: MatchMediaMock
+  let testValues: { [key: string]: HandlerEvent } = {}
 
   beforeAll(() => {
     matchMedia = new MatchMediaMock()
+    testValues = {}
   })
 
   afterEach(() => {
@@ -33,16 +21,35 @@ describe('resolve createMqFunctions', () => {
   test('(min-width: 769px)', async () => {
     const mqf = createMqFunctions('(min-width: 769px)')
 
+    // default internal values
     expect(mqf.functions instanceof Map).toBeTruthy()
     expect(mqf.functions.size).toBe(0)
-
     expect(mqf.mql.matches).toBeFalsy()
     expect(mqf.mql.media).toBe('(min-width: 769px)')
 
-    const handlerArg = await getHandleArg(mqf)
+    // _handleChange() is resolve also when no functions
+    expect(() => {
+      mqf._handleChange({
+        matches: false,
+        media: '(min-width: 769px)',
+      })
+    }).not.toThrow()
 
-    expect(handlerArg.matches).toBeFalsy()
-    expect(handlerArg.media).toBe('(min-width: 769px)')
+    // run added functions
+    mqf.functions.set('test1', (event: HandlerEvent) => {
+      testValues.test1 = event
+    })
+    mqf.functions.set('test2', (event: HandlerEvent) => {
+      testValues.test2 = event
+    })
+    mqf._handleChange({
+      matches: false,
+      media: '(min-width: 769px)',
+    })
+    expect(testValues.test1?.matches).toBeFalsy()
+    expect(testValues.test1?.media).toBe('(min-width: 769px)')
+    expect(testValues.test2?.matches).toBeFalsy()
+    expect(testValues.test2?.media).toBe('(min-width: 769px)')
   })
 })
 
