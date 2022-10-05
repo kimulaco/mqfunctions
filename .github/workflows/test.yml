@@ -70,6 +70,9 @@ jobs:
           node-version: '16.x'
       - run: npm ci
       - run: npm run test:unit
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   lint:
     name: Lint on Node.js ${{ matrix.node }} and ${{ matrix.os }}
