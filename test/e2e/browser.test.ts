@@ -17,7 +17,7 @@ const TEXT_PC = 'PC'
 const TEXT_SP = 'SP'
 
 describe('browser', () => {
-  test('Resize: PC -> SP -> SP', async () => {
+  test('Resize: PC -> SP -> PC', async () => {
     // PC viewport
     await page.setViewport(VIEWPORT_PC)
     await page.goto(BROWSER_TEST_URL)

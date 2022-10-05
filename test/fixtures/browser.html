@@ -9,6 +9,21 @@
   <body>
     <div id="result"></div>
     <script src="/js/mqfunctions.js"></script>
-    <script src="/js/browser.js"></script>
+    <script>
+      const { createMqFunctions } = window.Mqfunctions
+      const MQF_FUNC_ID = 'fn-pc-check'
+      const element = document.getElementById('result')
+      const mqf = createMqFunctions('(min-width: 768px)')
+
+      mqf.add(MQF_FUNC_ID, (event) => {
+        if (event.matches) {
+          element.innerText = 'PC'
+        } else {
+          element.innerText = 'SP'
+        }
+      })
+
+      mqf.run(MQF_FUNC_ID)
+    </script>
   </body>
 </html>
