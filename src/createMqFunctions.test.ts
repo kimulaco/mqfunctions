@@ -51,6 +51,36 @@ describe('resolve createMqFunctions', () => {
     expect(testValues.test2?.matches).toBeFalsy()
     expect(testValues.test2?.media).toBe('(min-width: 769px)')
   })
+
+  test('.add()', async () => {
+    const mqf = createMqFunctions('(min-width: 769px)')
+
+    mqf.add('test1', () => {})
+    expect(mqf.functions.size).toBe(1)
+  })
+
+  test('.remove()', async () => {
+    const mqf = createMqFunctions('(min-width: 769px)')
+
+    mqf.add('test1', () => {})
+    expect(mqf.functions.size).toBe(1)
+    mqf.remove('test1')
+    expect(mqf.functions.size).toBe(0)
+  })
+
+  test('.run()', async () => {
+    let testValues: { [key: string]: HandlerEvent } = {}
+    const mqf = createMqFunctions('(min-width: 769px)')
+
+    mqf.add('test1', (event: HandlerEvent) => {
+      testValues.test1 = event
+    })
+
+    expect(testValues.test1).toBeUndefined()
+    mqf.run('test1')
+    expect(testValues.test1?.matches).toBeFalsy()
+    expect(testValues.test1?.media).toBe('(min-width: 769px)')
+  })
 })
 
 describe('reject createMqFunctions', () => {
