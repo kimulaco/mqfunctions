@@ -2,12 +2,14 @@ import pluginNodeResolve from '@rollup/plugin-node-resolve'
 import pluginCommonjs from '@rollup/plugin-commonjs'
 import pluginTypescript from '@rollup/plugin-typescript'
 import { babel as pluginBabel } from '@rollup/plugin-babel'
-import { terser } from 'rollup-plugin-terser'
+import pluginTerser from '@rollup/plugin-terser'
 import camelCase from 'lodash.camelcase'
 import upperFirst from 'lodash.upperfirst'
 import path from 'path'
-import pkg from './package.json'
+import fs from 'fs'
 
+const dirname = path.dirname(new URL(import.meta.url).pathname)
+const pkg = JSON.parse(fs.readFileSync('./package.json'))
 const moduleName = upperFirst(camelCase(pkg.name))
 
 const banner = `/*!
@@ -15,6 +17,8 @@ const banner = `/*!
   ${pkg.homepage}
   Released under the ${pkg.license} License.
 */`
+
+const babelrcPath = path.resolve(dirname, '.babelrc.cjs')
 
 export default [
   {
@@ -32,7 +36,7 @@ export default [
         file: pkg.browser.replace('.js', '.min.js'),
         format: 'iife',
         banner,
-        plugins: [terser()],
+        plugins: [pluginTerser()],
       },
     ],
     plugins: [
@@ -42,7 +46,7 @@ export default [
       }),
       pluginBabel({
         babelHelpers: 'bundled',
-        configFile: path.resolve(__dirname, '.babelrc.js'),
+        configFile: babelrcPath,
       }),
       pluginNodeResolve({
         browser: true,
@@ -73,7 +77,7 @@ export default [
       }),
       pluginBabel({
         babelHelpers: 'bundled',
-        configFile: path.resolve(__dirname, '.babelrc.js'),
+        configFile: babelrcPath,
       }),
     ],
   },
@@ -96,7 +100,7 @@ export default [
       pluginTypescript(),
       pluginBabel({
         babelHelpers: 'bundled',
-        configFile: path.resolve(__dirname, '.babelrc.js'),
+        configFile: babelrcPath,
       }),
     ],
   },
