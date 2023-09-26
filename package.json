@@ -1,6 +1,10 @@
 {
   "name": "mqfunctions",
   "version": "0.2.0",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
   "description": "JavaScript library to manage matchMedia handlers.",
   "keywords": [
     "media query",
