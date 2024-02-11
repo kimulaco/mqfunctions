@@ -39,6 +39,7 @@
     "lint": "npm-run-all -p lint:*",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
     "test:unit": "jest -c jest.unit.config.cjs --verbose --coverage",
     "test:e2e": "jest -c jest.e2e.config.cjs --verbose",
     "pretest:e2e": "node scripts/setupE2E.cjs",
