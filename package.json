@@ -58,7 +58,7 @@
     "@types/expect-puppeteer": "^5.0.4",
     "@types/jest": "^29.5.5",
     "@types/jest-environment-puppeteer": "^5.0.4",
-    "@types/puppeteer": "^5.4.7",
+    "@types/puppeteer": "^7.0.0",
     "@typescript-eslint/eslint-plugin": "8.0.1",
     "@typescript-eslint/parser": "8.0.1",
     "eslint": "9.8.0",
