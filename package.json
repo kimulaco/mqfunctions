@@ -33,7 +33,7 @@
     "dist"
   ],
   "scripts": {
-    "start": "serve . -p 3000",
+    "start": "serve test/fixtures -p 3000",
     "prebuild": "rimraf dist",
     "build": "rollup -c",
     "lint": "npm-run-all -p lint:*",
