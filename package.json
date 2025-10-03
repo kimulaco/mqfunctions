@@ -75,6 +75,6 @@
     "rollup": "4.52.2",
     "serve": "14.2.5",
     "ts-jest": "29.4.4",
-    "typescript": "5.9.2"
+    "typescript": "5.9.3"
   }
 }
