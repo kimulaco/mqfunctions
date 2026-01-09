@@ -72,7 +72,7 @@
     "prettier": "3.7.4",
     "puppeteer": "24.34.0",
     "rimraf": "6.1.2",
-    "rollup": "4.54.0",
+    "rollup": "4.55.1",
     "serve": "14.2.5",
     "ts-jest": "29.4.6",
     "typescript": "5.9.3"
