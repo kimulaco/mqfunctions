@@ -70,7 +70,7 @@
     "lodash.camelcase": "4.3.0",
     "lodash.upperfirst": "4.3.1",
     "prettier": "3.8.1",
-    "puppeteer": "24.37.1",
+    "puppeteer": "24.37.2",
     "rimraf": "6.1.2",
     "rollup": "4.57.1",
     "serve": "14.2.5",
