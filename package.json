@@ -73,7 +73,7 @@
     "puppeteer": "24.37.5",
     "rimraf": "6.1.3",
     "rollup": "4.59.0",
-    "serve": "14.2.5",
+    "serve": "14.2.6",
     "ts-jest": "29.4.6",
     "typescript": "5.9.3"
   }
